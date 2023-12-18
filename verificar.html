@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Verificação do Código</title>
+        <link rel="stylesheet" href="assets/styles/style.css">
+        <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Verificação de Código</h1>
+            <p>Digite o código enviado no email do proprietário do sistema:</p>
+            <input type="number" name="num" id="num" min="0"/>
+            <input type="submit" value="Testar" id="test"/>
+        </div>
+    </body>
+    <script>
+        const submit = document.querySelector('input[type="submit"]');
+        const number = document.querySelector('#num');
+        
+        submit.addEventListener("click", (e) => {
+            const key = Number(localStorage.getItem("key-weather"));
+            if (key == number.value) {
+                location.href = 'http://127.0.0.1:5500/senha.html'
+            } else {
+                window.alert('Código errado!');
+            }
+        });
+    </script>
+</html>

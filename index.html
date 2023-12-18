@@ -2,56 +2,30 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>API Key</title>
+        <title>Confirmação por email</title>
+        <link rel="stylesheet" href="assets/styles/style.css">
+        <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <div id="container">
-            <form method="post">
-                <label for="keyInput">Chave da API:</label>
-                <input type="text" name="keyInput" id="keyInput" />
-                <input type="submit" value="Verificar" id="submit" />
+        <div class="container">
+            <h1>Confirmação por email</h1>
+            <p>Para que não hajam probelmas relacionados a API do OpenWheater, este site estará limitado por uma verificação via email do usuário dono do site (eu). Enviaremos um número em seu email quando você clicar no botão abaixo, você será redirecionado para uma página onde deverá digita-lo para que o site seja liberado.</p>
+            <form action="https://formsubmit.co/miguel.bueno291107@gmail.com" method="POST">
+                <input type="hidden" name="Mensagem" id="msg" required value="">
+                <input type="hidden" name="_next" value="http://127.0.0.1:5500/verificar.html">
+                <button type="submit">Enviar</button>
+                <input type="hidden" name="_subject" value="CHAVE DE ACESSO" />
+                <input type="text" name="_honey" style="display: none" />
+                <input type="hidden" name="_captcha" value="false">
             </form>
         </div>
     </body>
     <script>
-        const conatiner = document.querySelector("#container");
-        const keyInput = document.querySelector("#keyInput");
-        const submit = document.querySelector("#submit");
-        var chave = [113, 61, 65, 63, 66, 61, 63, 63, 65, 66, 68, 62, 61, 69, 111, 113, 69, 62, 111, 61, 67, 70, 110, 65, 61, 114, 69, 65, 114, 70, 67, 114];
-
-        function txtASCII(txt) {
-            var lista_ascii = [];
-            var string = "";
-            for (let i = 0; i < txt.length; i++) {
-                let ascii = txt.charCodeAt(i);
-                ascii += 13;
-                string += String.fromCodePoint(ascii);
-                lista_ascii.push(ascii);
-            }
-            return lista_ascii;
-        }
-
-        function check(l, c) {
-            for (let i = 0; i < l.length; i++) {
-                if (l.length != c.length) {
-                    return 'largura';
-                }
-                if (l[i] != c[i]) {
-                    return 'erro de igualdade';
-                }
-            }
-        }
-
-        submit.addEventListener("click", (e) => {
-            e.preventDefault();
-            var lista = txtASCII(keyInput.value);
-            console.log(check(lista, chave))
-            if (check(lista, chave)) {
-                alert('deu bom');
-            } else {
-                alert('deu não')
-            }
-        });
+        var num = parseInt(Math.random() * 10000);
+        const numero = document.querySelector('input#msg');
+        const keyStorage = localStorage.setItem('key-weather', num);
+        numero.value = num;
     </script>
 </html>
