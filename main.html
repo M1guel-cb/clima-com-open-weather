@@ -12,25 +12,34 @@
     <div class="container">
         <h1>WheaterNow</h1>
         <label for="city">Digite a cidade:</label>
-        <input type="text" name="city" id="city">
-        <input type="submit" value="Procurar" id="btn">
+        <div id="search">
+            <input type="text" name="city" id="city">
+            <i class="fa-solid fa-magnifying-glass" id="btn"></i>
+        </div>
         <div id="res">
-            <div id="div-city">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>Itu</span>
+            <div id="princ">
+                <div id="div-city">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p><span>Itu</span> - </p>
+                    <img src="https://flagsapi.com/BR/flat/64.png" alt="País" id="country">
+                </div>
+                <div id="temp">
+                    <p><span>25</span>ºC</p>
+                </div>
             </div>
-            <div id="temp">
-                <p><span>25</span>ºC</p>
-            </div>
-            <div id="desc">
-                <span>Nublado</span>
-                <img src="" alt="Condição do tempo" id="icon-wheater">
-            </div>
-            <div id="vento">
-                <span>3</span> km/h
-            </div>
-            <div id="umidade">
-                <span>48%</span>
+            <div id="details">
+                <div id="desc">
+                    <span>Nublado</span>
+                    <img src="https://openweathermap.org/img/wn/04d.png" alt="Condição do tempo" id="icon-weather">
+                </div>
+                <div id="vento">
+                    <p><span>3</span>km/h</p>
+                    <i class="fa-solid fa-wind"></i>
+                </div>
+                <div id="umidade">
+                    <p><span>48</span>%</p>
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
             </div>
         </div>
     </div>
