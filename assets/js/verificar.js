@@ -1,10 +1,20 @@
 const submit = document.querySelector('input[type="submit"]');
 const number = document.querySelector('#num');
+const popup = document.querySelector('#pop-up');
+const btn = document.querySelector('#btn-pop-up');
+if (sessionStorage.getItem('weathernow-code')) {
+    popup.style.display = 'flex';
+}
+
+btn.addEventListener('click', () => {
+    location.href = 'main.html';
+})
 
 submit.addEventListener("click", (e) => {
     const key = Number(localStorage.getItem("key-weather"));
     if (key == number.value) {
-        location.href = 'http://127.0.0.1:5500/senha.html'
+        sessionStorage.setItem('weathernow-code', true)
+        location.href = 'senha.html';
     } else {
         window.alert('Código errado!');
     }

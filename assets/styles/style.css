@@ -109,7 +109,7 @@ i.fa-eye-slash, i.fa-eye {
 
 #res {
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 15px;
@@ -155,4 +155,20 @@ div > div > i {
 
 #country {
     height: 40px;
+}
+
+#pop-up {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#pop-up > .container {
+    width: 400px;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.433));
 }

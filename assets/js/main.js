@@ -3,6 +3,7 @@
 const apiKey = 'd0425022457108bd81b069a40e84e96e';
 const btn = document.querySelector('#btn');
 const input = document.querySelector('#city');
+const res = document.querySelector('#res');
 
 const cidade = document.querySelector('#div-city span')
 const temperetura = document.querySelector('#temp span')
@@ -17,6 +18,12 @@ btn.addEventListener('click', (e) => {
     mostrarDados(city);
 })
 
+document.addEventListener('keypress', (e) => {
+    if (e.key == 'Enter') {
+        mostrarDados(input.value)
+    }
+})
+
 const pegarDados = async(city) => {
     const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`;
     const res = await fetch(urlApi);
@@ -26,13 +33,15 @@ const pegarDados = async(city) => {
 
 const mostrarDados = async (city) => {
     const data = await pegarDados(city);
+    const helpDesc = `${data.weather[0].description}`;
+    res.style.display = 'flex';
     cidade.innerHTML = `${data.name}`;
     umidade.innerHTML = `${data.main.humidity}`;
     vento.innerHTML = `${data.wind.speed}`;
-    desc.innerHTML = data.weather[0].description;
+    desc.innerHTML = helpDesc[0].toUpperCase() + helpDesc.substring(1);
     icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-    temperetura.innerHTML = parseInt(`${data.main.temp}`);
+    temperetura.innerHTML = parseInt(data.main.temp);
     pais.src = `https://flagsapi.com/${data.sys.country}/flat/64.png`
 }
 
-mostrarDados('Itu');
+// mostrarDados('Itu');
