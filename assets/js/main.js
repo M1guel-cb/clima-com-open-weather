@@ -1,5 +1,3 @@
-const apiKey = window.prompt('Digite a chave da API:')
-
 const btn = document.querySelector('#btn');
 const input = document.querySelector('#city');
 const res = document.querySelector('#res');
@@ -54,4 +52,4 @@ const mostrarDados = async (city) => {
     pais.src = `https://flagsapi.com/${data.sys.country}/flat/64.png`
 }
 
-// mostrarDados('Itu');
+const apiKey = window.prompt('Digite a chave da API:')
