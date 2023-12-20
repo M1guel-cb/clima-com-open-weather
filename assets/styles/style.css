@@ -168,7 +168,18 @@ div > div > i {
     align-items: center;
 }
 
-#pop-up > .container {
+#paro {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pop-up > .container, #paro > .container {
     width: 400px;
     filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.433));
 }

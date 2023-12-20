@@ -10,5 +10,5 @@ if (sessionStorage.getItem('weathernow-code')) {
 }
 
 btn.addEventListener('click', () => {
-    location.href = 'main.html';
+    location.href = 'senha.html';
 })

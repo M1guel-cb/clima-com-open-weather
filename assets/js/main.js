@@ -13,6 +13,13 @@ const icon = document.querySelector('#icon-weather')
 const umidade = document.querySelector('#umidade span')
 const vento = document.querySelector('#vento span')
 
+const paro = document.querySelector('#paro');
+if (sessionStorage.getItem('weathernow-code')) {
+    paro.style.display = 'none';
+}
+
+paro.addEventListener('click', () => location.href = 'index.html')
+
 btn.addEventListener('click', (e) => {
     const city = input.value;
     mostrarDados(city);
@@ -33,6 +40,10 @@ const pegarDados = async(city) => {
 
 const mostrarDados = async (city) => {
     const data = await pegarDados(city);
+    if (data.name == undefined) {
+        alert('Cidade inexistente!')
+        return
+    }
     const helpDesc = `${data.weather[0].description}`;
     res.style.display = 'flex';
     cidade.innerHTML = `${data.name}`;
