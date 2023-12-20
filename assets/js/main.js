@@ -1,4 +1,4 @@
-const key = window.prompt('Digite a chave da API:')
+const apiKey = window.prompt('Digite a chave da API:')
 
 const btn = document.querySelector('#btn');
 const input = document.querySelector('#city');
